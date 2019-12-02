@@ -1,0 +1,50 @@
+@import "reset";
+@import "fonts";
+@import "variables";
+@import "custom";
+@import "header/header";
+@import "footer/footer";
+@import "ap/ap";
+@import "lp/lp";
+@import "menu/menu";
+@import "popup/popup";
+
+
+
+body {
+    position: relative;
+    // width: 100%;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    color: $text;
+    &.compensate-for-scrollbar {
+        padding-right: 17px;
+        header.header-scrolled {
+            padding-right: 17px;
+        }
+    }
+}
+
+.app {
+    position: relative;
+    height: 100%;
+    .pages-wrapper, .header-wrapper, .menu-wrapper {
+        position: relative;
+        width: 100%;
+    }
+    .header-wrapper {
+        z-index: 4;
+    }
+    .pages-wrapper {
+        z-index: 2;
+    }
+}
+@media (min-width: 1370px) {
+    .container {
+        max-width: 1370px;
+    }
+    footer .container {
+        max-width: 1140px;
+    }
+}
+@import "media/media";

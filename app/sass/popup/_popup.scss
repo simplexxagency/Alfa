@@ -1,0 +1,150 @@
+.pop-up-overlay-wrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    height: calc(var(--vhR, 1vh) * 100);
+    z-index: 5;
+    .overlay-pop-up {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100%;
+        background-color: #000000;
+        opacity: 0.5;
+        z-index: 6;
+    }
+    &.show-pop-up {
+        display: flex;
+        opacity: 1;
+    }
+}
+.callback-form {
+    display: none;
+    justify-content: center;
+    width: 60%;
+    height: 100%;
+    height: calc(var(--vhR, 1vh) * 100);
+    overflow: hidden;
+    background: url('../img/menu.jpg') center no-repeat;
+    background-size: cover;
+    z-index: 7;
+    &.open {
+        display: flex;
+    }
+}
+.callback-form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .btn-menu-close {
+        margin-bottom: 70px;
+    }
+    h2 {
+        margin-bottom: 20px;
+    }
+    .btn-send {
+        margin-top: 50px;
+    }
+    .cool-input + .cool-input {
+        margin-left: 0;
+        margin-top: 50px;
+    }
+    textarea {
+        height: 25px;
+        overflow: hidden;
+        position: relative;
+        z-index: 2;
+    }
+}
+.cb-text {
+    width: 250px;
+    font-size: 14px;
+    line-height: 130%;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 60px;
+}
+textarea.cool-input__input + .cool-input__placeholder {
+    top: -20px;
+    width: 100%;
+    &::after {
+        content: '(не обязательно к заполнению)';
+        position: absolute;
+        bottom: calc(5px - 100%);
+        left: 0;
+        font-size: 14px;
+        line-height: 168%;
+        letter-spacing: 2px;
+        color: #81868C;
+        text-transform: lowercase;
+        transition: all .3s;
+    }
+}
+textarea.cool-input__input_filled + .cool-input__placeholder, textarea.cool-input__input:focus + .cool-input__placeholder {
+    top: -25px;
+    &::after {
+        top: 2px;
+        left: initial;
+        right: 0;
+        font-size: 12px;
+    }
+}
+.thnx-block {
+    display: none;
+    width: 335px;
+    padding: 50px 0;
+    height: 327px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, .9);
+    position: relative;
+    z-index: 7;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    p {
+        font-size: 20px;
+        line-height: 29px;
+        letter-spacing: 1px;
+        font-family: 'PlayfairDisplay-Regular';
+        text-align: center;
+    }
+    .ok-btn {
+        @extend %btnRed;
+        padding: 0;
+        width: 154px;
+    }
+    &.open {
+        display: flex;
+    }
+}
+
+@media (max-width: 1199px) {
+    .callback-form-content .btn-menu-close {
+        margin-bottom: 20px;
+    }
+    .cb-text {
+        margin-bottom: 30px;
+    }
+    textarea.cool-input__input_filled + .cool-input__placeholder, textarea.cool-input__input:focus + .cool-input__placeholder {
+        top: -35px;
+        &::after {
+            top: initial;
+            left: 0;
+            right: initial;
+            font-size: 12px;
+            bottom: calc(12px - 100%);
+        }
+    }
+}
+@media (max-width: 1199px) {
+    .callback-form {
+        width: 100%;
+    }
+}
